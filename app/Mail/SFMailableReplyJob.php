@@ -30,13 +30,13 @@ class SFMailableReplyJob extends Mailable
     {
         $Subject = $this->name . ' quiere trabajar con nosotros';
 
-        return $this->markdown('emails.reply-job-template')
-                    ->subject($Subject)
-                    ->with([
+
+        return $this->view('emails.reply-job-template', [
                         'name' => $this->name,
                         'email' => $this->email,
                         'phone' => $this->phone,
                         'city' => $this->city,
-                    ]);
+                           ])
+                    ->subject($Subject);
     }
 }

@@ -21,10 +21,9 @@ class SFMailable extends Mailable
 
     public function build()
     {
-        return $this->markdown('emails.template')
-                    ->subject('Gracias por contactarnos')
-                    ->with([
-                        'name' => $this->name
-                    ]);
+        return $this->view('emails.template', [
+                            'name' => $this->name
+                           ])
+                    ->subject('Gracias por contactarnos');
     }
 }

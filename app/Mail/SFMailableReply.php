@@ -31,14 +31,13 @@ class SFMailableReply extends Mailable
     {
         $Subject = $this->name . ' quiere contactarte';
 
-        return $this->markdown('emails.reply-template')
-                    ->subject($Subject)
-                    ->with([
-                        'name' => $this->name,
-                        'email' => $this->email,
-                        'phone' => $this->phone,
-                        'company' => $this->company,
-                        'charge' => $this->charge,
-                    ]);
+        return $this->view('emails.reply-template', [
+                            'name' => $this->name,
+                            'email' => $this->email,
+                            'phone' => $this->phone,
+                            'company' => $this->company,
+                            'charge' => $this->charge,
+                           ])
+                    ->subject($Subject);
     }
 }
