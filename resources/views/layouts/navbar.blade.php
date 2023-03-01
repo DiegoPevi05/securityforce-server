@@ -17,17 +17,12 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @guest
-                    @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
                         </li>
-                    @endif
-
-                    @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">Register</a>
                         </li>
-                    @endif
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
@@ -44,13 +39,13 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="{{ route('home.logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                Salir
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('home.logout') }}" method="POST" class="d-none">
                                 @csrf
                             </form>
                         </div>

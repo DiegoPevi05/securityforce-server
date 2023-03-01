@@ -15,10 +15,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Auth::routes();
-Route::middleware(['auth'])->group(function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post('/loginSend', [App\Http\Controllers\Usercontroller::class, 'login'])->name('home.loginSend');
+Route::post('/registerSend', [App\Http\Controllers\Usercontroller::class, 'register'])->name('home.registerSend');
+Route::post('/logout', [App\Http\Controllers\Usercontroller::class, 'logout'])->name('home.logout');
+
+Route::get('/login', [App\Http\Controllers\Usercontroller::class, 'showLoginForm'])->name('login');
+Route::get('/register', [App\Http\Controllers\Usercontroller::class, 'showRegistrationForm'])->name('register');
+
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/webcontent', [App\Http\Controllers\WebContentController::class, 'index'])->name('webcontent');
 
     Route::put('herocontent/{id}/update', [App\Http\Controllers\HeroController::class, 'update'])->name('contentweb.updateHero');
