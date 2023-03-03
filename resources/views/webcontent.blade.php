@@ -35,7 +35,7 @@
         </div>
         <div class="form-group">
             <label for="brochureUrl">Url del Brochure</label>
-            <input type="text" class="form-control @error('brochureUrl') is-invalid @enderror" id="brochureUrl" name="brochureUrl" value="{{  $hero->brochureUrl) }}">
+            <input type="text" class="form-control @error('brochureUrl') is-invalid @enderror" id="brochureUrl" name="brochureUrl" value="{{  $hero->brochureUrl }}">
             @error('brochureUrl')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
