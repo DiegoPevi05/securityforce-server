@@ -282,7 +282,7 @@
         @method('PUT')
         <div class="form-group">
             <label for="contact_subtitle">Sub-Titulo de Contacto</label>
-            <textarea class="form-control @error('contact_subtitle') is-invalid @enderror" id="contact_subtitle" name="contact_subtitle">{{  $contact->title }}</textarea>
+            <textarea class="form-control @error('contact_subtitle') is-invalid @enderror" id="contact_subtitle" name="contact_subtitle">{{  $contact->contact_subtitle }}</textarea>
             @error('contact_subtitle')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
