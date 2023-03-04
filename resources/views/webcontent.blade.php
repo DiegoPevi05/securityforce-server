@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>ENCABEZADO DE LA PAGINA</h1>
-    <form method="POST" action="{{ route('contentweb.updateHero', $hero->id) }}">
+    <form method="POST" action="{{ route('contentweb.updateHero', $hero->id) }}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="form-group">
@@ -35,7 +35,9 @@
         </div>
         <div class="form-group">
             <label for="brochureUrl">Url del Brochure</label>
-            <input type="text" class="form-control @error('brochureUrl') is-invalid @enderror" id="brochureUrl" name="brochureUrl" value="{{  $hero->brochureUrl }}">
+            <br>
+            <label>{{  $hero->brochureUrl }}</label>
+            <input type="file" class="form-control @error('brochureUrl') is-invalid @enderror" id="brochureUrl" name="brochureUrl">
             @error('brochureUrl')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
@@ -58,13 +60,15 @@
         </div>
         <div class="form-group">
             <label for="content">Contenido seccion Nosotros</label>
-            <input type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content" value="{{  $us->content }}">
+            <textarea type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content">{{  $us->content }}</textarea>
             @error('content')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
         <div class="form-group">
             <label for="imageUrl">Url Imagen seccion Nosotros</label>
+            <br>
+            <label>{{  $us->imageUrl }}</label>
             <input type="file" class="form-control @error('imageUrl') is-invalid @enderror" id="imageUrl" name="imageUrl">
             @error('imageUrl')
                 <span class="invalid-feedback">{{ $message }}</span>
@@ -97,7 +101,7 @@
         </div>
         <div class="form-group">
             <label for="content">Contenido de una de las secciones Industrias</label>
-            <input type="text" class="form-control @error('content') is-invalid @enderror" id="content" name="content" value="{{ $industry->content }}">
+            <textarea class="form-control @error('content') is-invalid @enderror" id="content" name="content">{{ $industry->content }}</textarea>
             @error('content')
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
@@ -118,6 +122,8 @@
         </div>
         <div class="form-group">
             <label for="imageUrl">Url Imagen de una de las secciones industrias</label>
+            <br>
+            <label>{{  $industry->imageUrl }}</label>
             <input type="file" class="form-control @error('imageUrl') is-invalid @enderror" id="imageUrl" name="imageUrl">
             @error('imageUrl')
                 <span class="invalid-feedback">{{ $message }}</span>

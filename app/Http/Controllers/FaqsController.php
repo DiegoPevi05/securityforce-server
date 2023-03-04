@@ -81,7 +81,7 @@ class FaqsController extends Controller
 
         $validatedData = $request->validate([
             'question' => 'required|string|max:255',
-            'answer'=> 'required|string|max:800',
+            'answer'=> 'required|string|max:1000',
         ], [
             'question.required' => 'El titulo es requerido.',
             'answer.required' => 'El sub-titulo es requerido.',

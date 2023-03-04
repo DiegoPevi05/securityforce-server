@@ -52,14 +52,12 @@ class HeroController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $heroContent = hero::findOrFail($id);
 
         $validatedData = $request->validate([
             'writeword' => 'required|string|max:255',
             'header'=> 'required|string|max:255',
             'title'=> 'required|string|max:255',
             'subtitle'=> 'required|string|max:255',
-            'brochureUrl' => 'nullable|string|max:1000'
         ], [
             'writeword.required' => 'El encabezado auto-escrito es requerido.',
             'header.required' => 'El encabezado es requerido.',
@@ -70,11 +68,25 @@ class HeroController extends Controller
             'header.max' => 'El numero de caracteres no debe ser superior a  :max characters.',
             'title.max' => 'El numero de caracteres no debe ser superior a  :max characters.',
             'subtitle.max' => 'El numero de caracteres no debe ser superior a  :max characters.',
-            'brochureUrl.max' => 'El numero de caracteres no debe ser superior a  :max characters.',
         ]);
 
+        $heroContent = hero::find($id);
+        $heroContent->writeword = $validatedData['writeword'];
+        $heroContent->header = $validatedData['header'];
+        $heroContent->title = $validatedData['title'];
+        $heroContent->subtitle = $validatedData['subtitle'];
+
+        if($request->hasFile('brochureUrl')){
+            $file = $request->file('brochureUrl');
+            $extension = $file->extension();
+            $fileName = 'brochure_'.time().'.' .$extension;
+            $destinationPath = public_path().'/images/brochure' ;
+            $file->move($destinationPath,$fileName);
+            $heroContent->brochureUrl = '/images/brochure/'. $fileName;
+        }
+
         try {
-            $heroContent->update($validatedData);
+            $heroContent->save();
         } catch (\Exception $e) {
             return redirect()->back()->withInput()->withErrors(['error' => 'An error occurred while updating the Hero Section. Please try again.']);
         }
