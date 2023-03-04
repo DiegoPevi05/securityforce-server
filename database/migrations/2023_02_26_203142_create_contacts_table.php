@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('contact_subtitle')->default('N/A');
-            $table->string('presencia')->default('N/A');
-            $table->string('address')->default('N/A');
-            $table->string('phone1')->default('N/A');
-            $table->string('mobile1')->default('N/A');
-            $table->string('mobile2')->default('N/A');
-            $table->string('website')->default('N/A');
-            $table->string('facebook')->default('N/A');
-            $table->string('email')->default('N/A');
-            $table->string('instagram')->default('N/A');
-            $table->string('tiktok')->default('N/A');
+            $table->string('contact_subtitle',255)->default('N/A');
+            $table->string('presencia',100)->default('N/A');
+            $table->string('address',255)->default('N/A');
+            $table->string('phone1',255)->default('N/A');
+            $table->string('mobile1',255)->default('N/A');
+            $table->string('mobile2',255)->default('N/A');
+            $table->string('website',255)->default('N/A');
+            $table->string('facebook',255)->default('N/A');
+            $table->string('email',255)->default('N/A');
+            $table->string('instagram',255)->default('N/A');
+            $table->string('tiktok',255)->default('N/A');
             $table->timestamps();
         });
     }

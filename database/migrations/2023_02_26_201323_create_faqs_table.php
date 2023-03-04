@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('question')->default('N/A');
-            $table->string('answer')->default('N/A');
+            $table->string('question',255)->default('N/A');
+            $table->string('answer',1000)->default('N/A');
             $table->timestamps();
         });
     }

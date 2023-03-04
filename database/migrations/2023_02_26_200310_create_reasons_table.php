@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('reasons', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->default('N/A');
-            $table->string('description')->default('N/A');
-            $table->string('reason1')->default('N/A');
-            $table->string('reason2')->default('N/A');
-            $table->string('reason3')->default('N/A');
-            $table->string('reason4')->default('N/A');
-            $table->string('reason5')->default('N/A');
-            $table->string('reason6')->default('N/A');
-            $table->string('reason7')->default('N/A');
-            $table->string('reason8')->default('N/A');
+            $table->string('title',255)->default('N/A');
+            $table->string('description',1000)->default('N/A');
+            $table->string('reason1',200)->default('N/A');
+            $table->string('reason2',200)->default('N/A');
+            $table->string('reason3',200)->default('N/A');
+            $table->string('reason4',200)->default('N/A');
+            $table->string('reason5',200)->default('N/A');
+            $table->string('reason6',200)->default('N/A');
+            $table->string('reason7',200)->default('N/A');
+            $table->string('reason8',200)->default('N/A');
             $table->timestamps();
         });
     }

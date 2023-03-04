@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('us', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->default('N/A');
-            $table->string('content')->default('N/A');
-            $table->string('imageUrl')->default('N/A');
+            $table->string('title',255)->default('N/A');
+            $table->string('content',1500)->default('N/A');
+            $table->string('imageUrl',1500)->default('N/A');
             $table->timestamps();
         });
     }

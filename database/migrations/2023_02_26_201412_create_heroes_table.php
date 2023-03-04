@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('heroes', function (Blueprint $table) {
             $table->id();
-            $table->string('writeword')->default('N/A');
-            $table->string('header')->default('N/A');
-            $table->string('title')->default('N/A');
-            $table->string('subtitle')->default('N/A');
-            $table->string('brochureUrl')->default('N/A');
+            $table->string('writeword',255)->default('N/A');
+            $table->string('header',255)->default('N/A');
+            $table->string('title',255)->default('N/A');
+            $table->string('subtitle',255)->default('N/A');
+            $table->string('brochureUrl',1000)->default('N/A');
             $table->timestamps();
         });
     }
