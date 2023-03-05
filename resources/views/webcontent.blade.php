@@ -295,6 +295,13 @@
             @enderror
         </div>
         <div class="form-group">
+            <label for="address">Direccion</label>
+            <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" name="address" value="{{ $contact->address }}">
+            @error('address')
+                <span class="invalid-feedback">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-group">
             <label for="phone1">Telefono Fijo</label>
             <input type="text" class="form-control @error('phone1') is-invalid @enderror" id="phone1" name="phone1" value="{{ $contact->phone1 }}">
             @error('phone1')
@@ -325,7 +332,6 @@
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
-
         <div class="form-group">
             <label for="facebook">Facebook</label>
             <input type="text" class="form-control @error('facebook') is-invalid @enderror" id="facebook" name="facebook" value="{{ $contact->facebook }}">
@@ -333,15 +339,6 @@
                 <span class="invalid-feedback">{{ $message }}</span>
             @enderror
         </div>
-
-        <div class="form-group">
-            <label for="email">Correo Electronico</label>
-            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ $contact->email }}">
-            @error('email')
-                <span class="invalid-feedback">{{ $message }}</span>
-            @enderror
-        </div>
-
         <div class="form-group">
             <label for="email">Email</label>
             <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ $contact->email }}">

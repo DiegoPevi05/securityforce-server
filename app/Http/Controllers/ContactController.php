@@ -59,6 +59,7 @@ class ContactController extends Controller
             'contact_subtitle' => 'required|string|max:255',
             'presencia'=> 'required|string|max:100',
             'phone1'=> 'required|string|max:255',
+            'address'=> 'required|string|max:255',
             'mobile1'=> 'required|string|max:255',
             'mobile2'=> 'required|string|max:255',
             'website'=> 'required|string|max:255',
@@ -69,6 +70,7 @@ class ContactController extends Controller
         ], [
             'contact_subtitle.required' => 'El titulo es requerido.',
             'presencia.required' => 'El contenido es requerido.',
+            'address'=> 'La imagen es requerida.',
             'phone1.required' => 'La imagen es requerida.',
             'mobile1.required' => 'La imagen es requerida.',
             'mobile2.required' => 'La imagen es requerida.',
