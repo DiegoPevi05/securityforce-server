@@ -27,11 +27,13 @@ class Usercontroller extends Controller
      */
     public function register(Request $request)
     {
+
+        $AuthCreationCode = env('AUTH_CREATION_USER_CODE');
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|unique:users|max:255',
             'password' => 'required|string|min:8|confirmed',
-            'code' => ['required', Rule::in(['SFSERVER2023'])]
+            'code' => ['required', Rule::in([$AuthCreationCode])]
         ]);
 
         $user = User::create([

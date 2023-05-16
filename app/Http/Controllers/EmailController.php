@@ -15,7 +15,8 @@ class EmailController extends Controller
     {
         // Check the Authorization header
         $authHeader = $request->header('Authorization');
-        if ($authHeader !== 'sfserver2023') {
+        $AuthHeaderCode = env('MAIL_HEADER_SENDER');
+        if ($authHeader !== $AuthHeaderCode) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -39,7 +40,8 @@ class EmailController extends Controller
 
     public function sendEmailJob(Request $request){
         $authHeader = $request->header('Authorization');
-        if ($authHeader !== 'sfserver2023') {
+        $AuthHeaderCode = env('MAIL_HEADER_SENDER');
+        if ($authHeader !== $AuthHeaderCode) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
