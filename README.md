@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://www.securityforcema.com" target="_blank">
-    <img src="https://github.com/DiegoPevi05/seecurityforce-server/blob/main/public/logo192.png" width="200">
+    <img src="https://github.com/DiegoPevi05/securityforce-server/blob/main/public/logo192.png" width="200">
   </a>
 </p>
 
